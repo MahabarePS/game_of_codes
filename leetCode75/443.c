@@ -43,3 +43,32 @@ Constraints:
 1 <= chars.length <= 2000
 chars[i] is a lowercase English letter, uppercase English letter, digit, or symbol.
 */
+#include<stdio.h>
+#include<stdint.h>  // for unsigned int
+//---Max size of the chars array
+#define MAX_SIZE 2000
+
+//---function declaration
+int string_compression(char *);
+int main(){
+    //---array of characters
+    char chars[MAX_SIZE]={'\0'};
+    printf("---443. String Compression---");
+    printf("Enter a string:");
+    //---till user hit enter
+    scanf("%[^\n]s",chars);     
+    int len = 0;
+    //---to store the length of the entered string
+    while(chars[len]!='\0'){
+        len++;
+    }
+    //---passing base address of 'chars[]' to the compression function
+    unsigned int result = string_compression(chars);
+    printf("output: ",result);
+    return 0;
+}
+//---beign with empty string
+int string_compression(char *s){
+
+    return 0;
+}
