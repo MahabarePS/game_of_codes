@@ -44,8 +44,13 @@ Constraints:
 str1 and str2 consist of English uppercase letters.
 */
 #include<stdio.h>
-
+#define STR_SIZE 1000
 char* gcdOfStrings(char*, char*);
 int main(){
-    
+    char str1[STR_SIZE]="", str2[STR_SIZE]="";  //Proper buffer
+    printf("--------------1071. Greatest Common Divisor of String--------------");
+    printf("Enter String 1: ");                 //hello
+    fgets(str1,STR_SIZE,stdin);//Bounded input  //'h' 'e' 'l' 'l' 'o' '\n' '\0'
+    printf("Enter String 2: ");
+    fgets(str2,STR_SIZE,stdin);//Bounded input  //
 }
