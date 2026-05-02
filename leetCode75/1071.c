@@ -44,13 +44,52 @@ Constraints:
 str1 and str2 consist of English uppercase letters.
 */
 #include<stdio.h>
+#include<stdlib.h>
 #define STR_SIZE 1000
 char* gcdOfStrings(char*, char*);
+char* strSanitization(char*);
 int main(){
-    char str1[STR_SIZE]="", str2[STR_SIZE]="";  //Proper buffer
+    char str1[STR_SIZE]="", str2[STR_SIZE]="";//Proper buffer
     printf("--------------1071. Greatest Common Divisor of String--------------");
     printf("Enter String 1: ");                 //hello
     fgets(str1,STR_SIZE,stdin);//Bounded input  //'h' 'e' 'l' 'l' 'o' '\n' '\0'
     printf("Enter String 2: ");
     fgets(str2,STR_SIZE,stdin);//Bounded input  //
+    //sanitize strings '\n' with '\0'
+    strSanitization(str1);
+    strSanitization(str2);
+    //Now process the GCD of String 
+    char* ptr = gcdOfStrings(str1,str2);
+    if(ptr!=NULL){
+        printf("Output: %s",ptr);
+        free(ptr);
+    }else{
+        printf("Output: " "");
+    }
+}
+char* strSanitization(char* san){
+    unsigned int index=0;
+    while(san[index]!='\0'){
+        if(san[index]=='\n'){
+            san[index]='\0';
+            break;
+        }
+        index++;
+    }
+    return san;
+}
+char* gcdOfStrings(char* str1, char* str2){
+    //1000bytes of memory initialized with 0's
+    char* result = calloc(STR_SIZE,sizeof(char));
+    if(result){
+        /*
+        Logic 
+        */
+        return result;
+        //free the memory after each GCD
+        
+    }else{
+        printf("Not enough memory!!");
+        return result;
+    }
 }
