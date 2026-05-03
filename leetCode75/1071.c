@@ -80,11 +80,18 @@ char* strSanitization(char* san){
 }
 char* gcdOfStrings(char* str1, char* str2){
     //1000bytes of memory initialized with 0's
-    char* result = calloc(STR_SIZE,sizeof(char));
+    char* result[] = calloc(STR_SIZE,sizeof(char));
+    unsigned int s_index,t_index;
     if(result){
-        /*
-        Logic 
-        */
+        if(sizeof(str1)<sizeof(str2)){
+            for(s_index=0,t_index=0;
+                str1[s_index]!='\0',str2[t_index]!='\0';
+                s_index++,t_index++){
+
+                }
+        }else{
+
+        }
         return result;
         //free the memory after each GCD
         
