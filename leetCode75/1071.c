@@ -84,11 +84,13 @@ char* gcdOfStrings(char* str1, char* str2){
     unsigned int s_index,t_index;
     if(result){
         if(sizeof(str1)<sizeof(str2)){
-            for(s_index=0,t_index=0;
-                str1[s_index]!='\0',str2[t_index]!='\0';
-                s_index++,t_index++){
-
+            for(str1[s_index]=0;str1[s_index]='\0';s_index++){
+                for(str2[t_index]=0;str2[t_index]='\0';t_index++){
+                    if(str1[s_index]==str2[t_index]){
+                        result[t_index]=str2[t_index];
+                    }
                 }
+            }
         }else{
 
         }
