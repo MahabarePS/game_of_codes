@@ -45,6 +45,7 @@ str1 and str2 consist of English uppercase letters.
 */
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 #define STR_SIZE 1000
 char* gcdOfStrings(char*, char*);
 char* strSanitization(char*);
@@ -82,14 +83,23 @@ char* gcdOfStrings(char* str1, char* str2){
     //1000bytes of memory initialized with 0's
     char* result[] = calloc(STR_SIZE,sizeof(char));
     unsigned int s_index,t_index;
+    bool pass=false;// To check is the subtring complete the first pass
     if(result){
+        //smaller will be the substring to match
         if(sizeof(str1)<sizeof(str2)){
-            for(str1[s_index]=0;str1[s_index]='\0';s_index++){
-                for(str2[t_index]=0;str2[t_index]='\0';t_index++){
-                    if(str1[s_index]==str2[t_index]){
-                        result[t_index]=str2[t_index];
-                    }
+            
+            for(str1[s_index]=0;str1[s_index]='\0';s_index++){// string t
+                if(pass==true){
+                    for(str2[t_index]=0;str2[t_index]='\0';t_index++){// string s
+                        if(str1[s_index]==str2[t_index]){
+                        
+                            result[t_index]=str2[t_index];
+                        }
+                    pass = true;
                 }
+            }else{
+                
+            }
             }
         }else{
 
