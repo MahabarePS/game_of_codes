@@ -82,30 +82,8 @@ char* strSanitization(char* san){
 char* gcdOfStrings(char* str1, char* str2){
     //1000bytes of memory initialized with 0's
     char* result[] = calloc(STR_SIZE,sizeof(char));
-    unsigned int s_index,t_index;
-    bool pass=false;// To check is the subtring complete the first pass
     if(result){
-        //smaller will be the substring to match
-        if(sizeof(str1)<sizeof(str2)){
-            
-            for(str1[s_index]=0;str1[s_index]='\0';s_index++){// string t
-                if(pass==true){
-                    for(str2[t_index]=0;str2[t_index]='\0';t_index++){// string s
-                        if(str1[s_index]==str2[t_index]){
-                        
-                            result[t_index]=str2[t_index];
-                        }
-                    pass = true;
-                }
-            }else{
-                
-            }
-            }
-        }else{
-
-        }
-        return result;
-        //free the memory after each GCD
+        
         
     }else{
         printf("Not enough memory!!");
