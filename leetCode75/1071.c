@@ -80,10 +80,27 @@ char* strSanitization(char* san){
     return san;
 }
 char* gcdOfStrings(char* str1, char* str2){
+    //need to find the length of the string
+    unsigned int str1_size = 0, str2_size=0,index=0,count=0;
+    unsigned int pattern_len=0,pattern_index=0;
+    //find the length of the str1
+    for(index=0;str1[index]!='\0';index++){
+        count++;
+    }str1_size=count;
+    count=0;
+    //find the length of the str2
+    for(index=0;str2[index]!='\0';index++){
+        count++;
+    }str2_size=count;
     //1000bytes of memory initialized with 0's
     char* result[] = calloc(STR_SIZE,sizeof(char));
     if(result){
-        
+        //if str1 is a substring, pattern
+        if(str1_size<str2_size){
+
+        }else{
+
+        }
         
     }else{
         printf("Not enough memory!!");
