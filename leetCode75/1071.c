@@ -51,10 +51,10 @@ char* gcdOfStrings(char*, char*);
 char* strSanitization(char*);
 int main(){
     char str1[STR_SIZE]="", str2[STR_SIZE]="";//Proper buffer
-    printf("--------------1071. Greatest Common Divisor of String--------------");
+    printf("\n--------------1071. Greatest Common Divisor of String--------------\n");
     printf("Enter String 1: ");                 //hello
     fgets(str1,STR_SIZE,stdin);//Bounded input  //'h' 'e' 'l' 'l' 'o' '\n' '\0'
-    printf("Enter String 2: ");
+    printf("\nEnter String 2: ");
     fgets(str2,STR_SIZE,stdin);//Bounded input  //
     //sanitize strings '\n' with '\0'
     strSanitization(str1);
@@ -81,29 +81,67 @@ char* strSanitization(char* san){
 }
 char* gcdOfStrings(char* str1, char* str2){
     //need to find the length of the string
-    unsigned int str1_size = 0, str2_size=0,index=0,count=0;
-    unsigned int pattern_len=0,pattern_index=0;
-    //find the length of the str1
-    for(index=0;str1[index]!='\0';index++){
-        count++;
-    }str1_size=count;
-    count=0;
-    //find the length of the str2
-    for(index=0;str2[index]!='\0';index++){
-        count++;
-    }str2_size=count;
-    //1000bytes of memory initialized with 0's
-    char* result[] = calloc(STR_SIZE,sizeof(char));
-    if(result){
-        //if str1 is a substring, pattern
-        if(str1_size<str2_size){
-
-        }else{
-
-        }
-        
-    }else{
-        printf("Not enough memory!!");
-        return result;
+    unsigned int str1_size = 0, str2_size=0,index=0;
+    //Finding the length of str1
+    while(str1[str1_size]!='\0'){
+        str1_size++;
     }
+    //Finding the length of str2
+    while(str2[str2_size]!='\0'){
+        str2_size++;
+    }
+    //Allocate result buffer
+    char* result = calloc(STR_SIZE,sizeof(char));
+    if(result==NULL){
+        printf("Not enough memory!!");
+        return NULL;
+    }
+    //Start from smaller length
+    unsigned int min_len;
+
+    if(str1_size<str2_size){
+        min_len = str1_size;
+    }else{
+        min_len = str2_size;
+    }
+    //Try the largest possible pattern first
+    for(unsigned int pattern_len=min_len;pattern_len>0;pattern_len--){
+        //Pattern length must divide BOTH strings
+        if((str1_size%pattern_len!=0)||(str2_size%pattern_len!=0)){
+            continue;
+            //SKIP Everything BELOW
+            //and move to the next pattern_len
+        }
+        bool valid = true;
+        //Validate str1
+        for(index=0;index<str1_size;index++){
+            unsigned int pattern_index = index%pattern_len;
+            if(str1[index]!=str1[pattern_index]){
+                valid=false;
+                break;
+            }
+        }
+        //Validate str2 only if str1 passed
+        if(valid){
+            for(index=0;index<str2_size;index++){
+                unsigned int pattern_index = index%pattern_len;
+                if(str2[index]!=str1[pattern_index]){
+                    valid=false;
+                    break;
+                }
+            }
+        }
+        //If valid pattern found
+        if(valid){
+            for(index=0;index<pattern_len;index++){
+                result[index] = str1[index];
+            }
+            result[pattern_len]='\0';
+
+            return result;
+        }
+    }
+    //No common pattern
+    result="";
+    return result;
 }
