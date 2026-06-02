@@ -32,6 +32,8 @@ Follow up: Could you minimize the total number of operations done?
 */
 #include<stdio.h>
 #include<stdint.h>
+#define SIZE 255
 int main(){
+    uint8_t nums[SIZE]={0};
     return 0;
 }
