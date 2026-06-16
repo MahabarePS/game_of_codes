@@ -38,3 +38,6 @@ int main(){
     int nums[SIZE]={0};
     return 0;
 }
+void moveZeroes(int*,int){
+
+}
