@@ -31,6 +31,7 @@ n == nums.length
 */
 #define SIZE 105
 #include<stdio.h>
+double findMaxAverage(int* num, int numSize, int k);
 int main(){
     int nums[SIZE]={0};
     return 0;
