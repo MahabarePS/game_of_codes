@@ -44,3 +44,7 @@ Constraints:
 1 <= nums.length <= 104
 -1000 <= nums[i] <= 1000
 */
+#include <stdio.h>
+int main(){
+    return 0;
+}
