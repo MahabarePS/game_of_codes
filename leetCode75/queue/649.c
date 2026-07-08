@@ -44,3 +44,8 @@ n == senate.length
 1 <= n <= 104
 senate[i] is either 'R' or 'D'.
 */
+#include<stdio.h>
+int main(){
+
+    return 0;
+}
