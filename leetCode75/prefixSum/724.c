@@ -45,6 +45,7 @@ Constraints:
 -1000 <= nums[i] <= 1000
 */
 #include <stdio.h>
+char nums[]={0};
 int main(){
     return 0;
 }
