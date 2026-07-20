@@ -31,6 +31,7 @@ n == gain.length
 -100 <= gain[i] <= 100
 */
 #include<stdio.h>
+int gain[]={0};
 int main(){
     return 0;
 }
