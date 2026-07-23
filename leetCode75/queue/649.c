@@ -45,6 +45,9 @@ n == senate.length
 senate[i] is either 'R' or 'D'.
 */
 #include<stdio.h>
+typedef struct{
+
+}Queue;
 int main(){
 
     return 0;
