@@ -45,8 +45,12 @@ n == senate.length
 senate[i] is either 'R' or 'D'.
 */
 #include<stdio.h>
+#include<stdbool.h>
+#define MAX_SIZE 104
+// Defining the Queue structure
 typedef struct{
-
+    int front;
+    int rear;
 }Queue;
 int main(){
 
