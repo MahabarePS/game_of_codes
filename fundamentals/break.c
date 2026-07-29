@@ -4,7 +4,9 @@
  * github: https://github.com/MahabarePS
  * copyright 2026
 */
-
+/*
+Break statement is used to "jump out" of a "switch" statement and out of loop.
+*/
 #include<stdio.h>
 int main(){
     int i;
