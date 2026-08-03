@@ -16,3 +16,7 @@ Creating a simple hash table:
 4. Handling collisions.
 5. The basic hash set code example and simulation.
 */
+#include<stdio.h>
+int main(){
+    return 0;
+}
