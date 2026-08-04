@@ -17,6 +17,9 @@ Creating a simple hash table:
 5. The basic hash set code example and simulation.
 */
 #include<stdio.h>
+#include<string.h>
+//array
+char* myHashSet[10]={NULL, "Jones", NULL, "Lisa", NULL, "Bob", NULL, "Siri", "Pete", NULL};
 int main(){
     return 0;
 }
