@@ -18,8 +18,9 @@ Creating a simple hash table:
 */
 #include<stdio.h>
 #include<string.h>
-//array
 char* myHashSet[10]={NULL, "Jones", NULL, "Lisa", NULL, "Bob", NULL, "Siri", "Pete", NULL};
+//to store names
+int hashFunction(const char* value);
 int main(){
     return 0;
 }
