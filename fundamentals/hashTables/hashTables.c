@@ -21,6 +21,8 @@ Creating a simple hash table:
 char* myHashSet[10]={NULL, "Jones", NULL, "Lisa", NULL, "Bob", NULL, "Siri", "Pete", NULL};
 //to store names
 int hashFunction(const char* value);
+//to check if present
+int contains(const char* name);
 int main(){
     return 0;
 }
