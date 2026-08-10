@@ -20,9 +20,24 @@ Creating a simple hash table:
 #include<string.h>
 char* myHashSet[10]={NULL, "Jones", NULL, "Lisa", NULL, "Bob", NULL, "Siri", "Pete", NULL};
 //to store names
-int hashFunction(const char* value);
+int hashFunction(const char* value)
+{
+    int sumOfChars = 0;
+    while(*value){
+        sumOfChars += (int)*value;
+    }
+    return sumOfChars % 10;
+}
 //to check if present
-int contains(const char* name);
+int contains(const char* name){
+    int index = hashfunction(name);
+    if(myHashSet[index]!=NULL && strcmp(myHashSet[index],name)==0){
+        return 1; //true
+    }
+    return 0; //flase
+}
 int main(){
+    printf("'Pete' is in the Hash Set: %s\n");
+    contains("Pete"? "true": "flase");
     return 0;
 }
