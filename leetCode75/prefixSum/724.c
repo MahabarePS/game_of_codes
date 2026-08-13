@@ -45,7 +45,19 @@ Constraints:
 -1000 <= nums[i] <= 1000
 */
 #include <stdio.h>
-char nums[]={0};
+#include <stdlib.h>
+
+int pivotIndex(int* nums,int numsSize){
+    int lsum=0,rsum=0,index=0;
+    for(int i=0,j=numsSize;lsum!=rsum;i++,j--){
+        lsum=nums[i]+nums[i+1];
+        rsum=nums[j-1]+nums[j];
+    }
+    return index;
+}
 int main(){
+    int nums={1,7,3,6,5,6};
+    int numsSize = sizeof(nums);
+    printf("Output: ",pivotIndex(nums,numsSize));
     return 0;
 }
