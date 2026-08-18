@@ -48,20 +48,34 @@ Constraints:
 #include <stdlib.h>
 
 int pivotIndex(int* nums,int numsSize){
-    int lsum=0,rsum=0,i=0,j=numsSize-1;
-    while(lsum!=rsum){
-        lsum += nums[i];rsum += nums[j];
-        if(lsum<rsum){
-            i++;
-        }else if(lsum>rsum){
-            j--;
-        }
+    int total = 0;
+    int leftSum = 0;
+
+    // Step 1: Calculate total sum
+    for (int i = 0; i < numsSize; i++)
+    {
+        total += nums[i];
     }
-    return;
+
+    // Step 2: Check every index as a possible pivot
+    for (int i = 0; i < numsSize; i++)
+    {
+        int rightSum = total - leftSum - nums[i];
+
+        if (leftSum == rightSum)
+        {
+            return i;
+        }
+
+        // Move nums[i] from the pivot position
+        // into the left side for the next iteration
+        leftSum += nums[i];
+    }
+    return -1;
 }
 int main(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
     int nums[]={1,7,3,6,5,6};
-    int numsSize = sizeof(nums);
+    int numsSize = sizeof(nums)/sizeof(nums[0]);
     printf("Output:%d\n ",pivotIndex(nums,numsSize));
     return 0;
 }
