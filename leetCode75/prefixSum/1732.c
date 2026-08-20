@@ -31,7 +31,21 @@ n == gain.length
 -100 <= gain[i] <= 100
 */
 #include<stdio.h>
-int gain[]={0};
+int largestAltitude(int* gain, int gainSize) {
+    int highestAltitude=0,new_altitude=0;
+    for(int i=0;i<gainSize;i++){
+        //Move the biker using gain
+        new_altitude += gain[i];
+        //Check the new altitude
+        if(new_altitude>highestAltitude){
+            highestAltitude = new_altitude;
+        }
+    }
+    return highestAltitude;
+}
 int main(){
+    int gain[] = {44,32,-9,52,23,-50,50,33,-84,47,-14,84,36,-62,37,81,-36,-85,-39,67,-63,64,-47,95,91,-40,65,67,92,-28,97,100,81};
+    int gainSize = sizeof(gain)/sizeof(gain[0]);
+    printf("Output: %d ",largestAltitude(gain, gainSize));
     return 0;
 }
