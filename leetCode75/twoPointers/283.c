@@ -32,12 +32,23 @@ Follow up: Could you minimize the total number of operations done?
 */
 #include<stdio.h>
 #include<stdint.h>
-#define SIZE 255
-void moveZeroes(int*,int);
-int main(){
-    int nums[SIZE]={0};
-    return 0;
+void moveZeroes(int* nums, int numsSize) {
+    for(int *ptr = nums;ptr<nums+numsSize;ptr++){
+        if(*ptr==0 && (*[ptr+1]>0 || *[ptr+1]<0)){
+            int temp = *ptr;
+            *ptr = *[ptr+1];
+            *ptr+1 = temp;
+        }
+    }
 }
-void moveZeroes(int*,int){
-
+int main(){
+    int nums[]={0};
+    int numsSize = sizeof(nums)/sizeof(nums[0]);
+    moveZeroes(nums,numsSize);
+    printf("Output:[");
+    for(int i=0;i<numsSize;i++){
+        printf("%d,", nums[i]);
+    }
+    printf("]");
+    return 0;
 }
