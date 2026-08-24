@@ -34,10 +34,10 @@ Follow up: Could you minimize the total number of operations done?
 #include<stdint.h>
 void moveZeroes(int* nums, int numsSize) {
     for(int *ptr = nums;ptr<nums+numsSize;ptr++){
-        if(*ptr==0 && (*[ptr+1]>0 || *[ptr+1]<0)){
+        if(*ptr==0 && (*(ptr+1)>0 || *(ptr+1)<0)){
             int temp = *ptr;
-            *ptr = *[ptr+1];
-            *ptr+1 = temp;
+            *ptr = *(ptr+1);
+            *(ptr+1) = temp;
         }
     }
 }
