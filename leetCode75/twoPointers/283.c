@@ -33,12 +33,12 @@ Follow up: Could you minimize the total number of operations done?
 #include<stdio.h>
 #include<stdint.h>
 void moveZeroes(int* nums, int numsSize) {
-    for(int *ptr = nums;ptr<nums+numsSize;ptr++){
-        if(*ptr==0 && (*(ptr+1)>0 || *(ptr+1)<0)){
-            int temp = *ptr;
-            *ptr = *(ptr+1);
-            *(ptr+1) = temp;
-        }
+    for(int *ptr1 = nums, *ptr2 = ptr1+1;
+        ptr1<nums+numsSize,ptr2<nums+numsSize;){
+        //if both pointers are non-zero
+        if(*ptr1!=0 && *ptr2!=0){
+            ptr1++;
+        }else if()
     }
 }
 int main(){
