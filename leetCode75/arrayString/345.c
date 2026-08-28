@@ -33,3 +33,13 @@ Constraints:
 1 <= s.length <= 3 * 105
 s consist of printable ASCII characters.
 */
+#include<stdio.h>
+char* reverseVowels(char* s) {
+    
+}
+int main(){
+    char s = "IceCreAm";
+    char size = sizeof(s);
+    printf("Output: %s",reverseVowels(s));
+    return 0;
+}
