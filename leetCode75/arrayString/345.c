@@ -36,7 +36,25 @@ s consist of printable ASCII characters.
 #include<stdio.h>
 #define SIZE 100
 char* reverseVowels(char* s) {
-    
+    char temp[SIZE] = "\0";
+    int i=0;
+    //To store the vowels from the string in order
+    for(i=0;s[i]!='0';i++){
+        if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')||
+            (s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')){
+                temp[i]==s[i];
+            }
+    }
+    //need to reverse
+    int size=i;
+    //reverse the order of the vowels
+    for(int i=size;i<!0;i--){
+        if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')||
+            (s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')){
+                s[i]==temp[i];
+            }
+    }
+    return s;
 }
 int main(){
     char s[SIZE] = "IceCreAm";
