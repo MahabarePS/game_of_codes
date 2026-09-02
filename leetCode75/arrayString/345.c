@@ -34,31 +34,39 @@ Constraints:
 s consist of printable ASCII characters.
 */
 #include<stdio.h>
-#define SIZE 100
+int isVowel(char c){
+    return (c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||
+            c=='A'||c=='E'||c=='I'||c=='O'||c=='U');
+}
 char* reverseVowels(char* s) {
-    char temp[SIZE] = "\0";
-    int i=0;
-    //To store the vowels from the string in order
-    for(i=0;s[i]!='0';i++){
-        if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')||
-            (s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')){
-                temp[i]==s[i];
-            }
+    int left = 0;
+    int right = 0;
+    //find the end of the string
+    while(s[right]!='\0'){
+        right++;
     }
-    //need to reverse
-    int size=i;
-    //reverse the order of the vowels
-    for(int i=size;i<!0;i--){
-        if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')||
-            (s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')){
-                s[i]==temp[i];
-            }
+    right--;
+    while(left<right){
+        //find the vowel from the left
+        while(left<right && !isVowel(s[left])){
+            left++;
+        }
+        //find the vowel from the right
+        while(left<right && !isVowel(s[right])){
+            right--;
+        }
+        //swap vowels
+        char temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+        left++;
+        right--;
     }
     return s;
 }
 int main(){
-    char s[SIZE] = "IceCreAm";
+    char s[] = "IceCreAm";
     reverseVowels(s);
-    printf("Output: %s\n",s);
+    printf("Output: %s\n", s);
     return 0;
 }
