@@ -30,3 +30,10 @@ flowerbed[i] is 0 or 1.
 There are no two adjacent flowers in flowerbed.
 0 <= n <= flowerbed.length
 */
+#include<stdio.h>
+bool calPlaceFlowers(int* flowerbed, int flowerbedSize, int n){
+
+}
+int main(){
+    return 0;
+}
