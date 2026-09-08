@@ -34,7 +34,12 @@ There are no two adjacent flowers in flowerbed.
 */
 #include<stdio.h>
 bool calPlaceFlowers(int* flowerbed, int flowerbedSize, int n){
-
+    //if number of flowers to be placed are more than the flowerbed size
+    if(n>=flowerbedSize){
+        return false;
+    }else{
+        
+    }
 }
 int main(){
     int flowerbed[] ={1,0,0,0,1};
