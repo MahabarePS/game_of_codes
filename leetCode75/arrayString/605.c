@@ -33,17 +33,32 @@ There are no two adjacent flowers in flowerbed.
 0 <= n <= flowerbed.length
 */
 #include<stdio.h>
+#include<stdbool.h>
 bool calPlaceFlowers(int* flowerbed, int flowerbedSize, int n){
-    //if number of flowers to be placed are more than the flowerbed size
-    if(n>=flowerbedSize){
-        return false;
-    }else{
-        
+    if(n==0){
+        return true;
     }
+    int place = n;
+    for (int i = 0; i < flowerbedSize; i++)
+    {
+        int left = (i == 0) ? 0 : flowerbed[i - 1];
+        int right = (i == flowerbedSize - 1) ? 0 : flowerbed[i + 1];
+
+        if (flowerbed[i] == 0 && left == 0 && right == 0)
+        {
+            flowerbed[i] = 1;
+            place--;
+
+            if (place == 0)
+                return true;
+        }
+    }
+
+    return false;
 }
 int main(){
     int flowerbed[] ={1,0,0,0,1};
-    int n=2,flowerbedSize = sizeof(flowerbed)/sizeof(flowerbed[0]);
-    prinf("Output: %d\n",calPlaceFlowers(flowerbed,flowerbedSize,n));
+    int n=1,flowerbedSize = sizeof(flowerbed)/sizeof(flowerbed[0]);
+    printf("Output: %s\n",calPlaceFlowers(flowerbed,flowerbedSize,n)? "true":"false");
     return 0;
 }
